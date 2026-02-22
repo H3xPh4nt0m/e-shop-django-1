@@ -1,5 +1,6 @@
 from django.db import models
 from apps.category.models import Category
+from django.urls import reverse
 
 # Create your models here.
 class Product(models.Model):
@@ -15,6 +16,9 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_url(self):
+        return reverse('product_detail', args=[self.category.slug, self.slug])
+    
     class Meta:
         ordering = ('-created_at',)
 

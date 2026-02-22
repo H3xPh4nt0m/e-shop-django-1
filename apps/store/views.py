@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from apps.category.models import Category
-from apps.store.models import Product
+from .models import Product
 
 # Create your views here.
 def store(request, category_slug=None):
@@ -14,3 +14,10 @@ def store(request, category_slug=None):
         products = Product.objects.all().filter(is_available=True)
     
     return render(request, 'store/store.html', {'categories': categories, 'products': products})
+
+def product_detail(request, category_slug, product_slug):
+    try:
+        single_product = Product.objects.get(category__slug=category_slug, slug=product_slug)
+    except Exception as e:
+        raise e
+    return render(request, 'store/product-detail.html', {'single_product': single_product})
