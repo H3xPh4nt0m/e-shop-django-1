@@ -148,7 +148,11 @@
 						<del class="price-old">$1980</del>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="{% url 'add_cart' product.id %}" class="btn btn-block btn-primary">Added to cart </a>
+				{% if product.stock > 0 %}
+					<a href="{% url 'add_cart' product.id %}" class="btn btn-block btn-primary">Add to Cart</a>
+				{% else %}
+					<a href="#" class="btn disabled btn-block btn-danger">Out of Stock</a>
+				{% endif %}
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
