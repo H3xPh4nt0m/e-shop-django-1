@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 from apps.store.models import Product
 from .models import Cart, CartItem
@@ -52,6 +53,7 @@ def remove_cart_item(request, product_id):
  
 
 def cart(request, total=0, quantity=0, cart_items=None):
+    tax, grand_total = 0, 0
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart, is_active=True)
