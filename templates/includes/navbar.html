@@ -18,6 +18,7 @@
 		<li class="nav-item dropdown">
 			<a href="/admin" class="nav-link"> Admin </a>
 		</li>
+
     </ul>
     <ul class="navbar-nav">
 		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
@@ -50,9 +51,9 @@
 	</div> <!-- col.// -->
 	<a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
 	<div class="col-lg  col-md-6 col-sm-12 col">
-		<form action="#" class="search">
+		<form action="{% url 'search' %}" class="search" method="get">
 			<div class="input-group w-100">
-			    <input type="text" class="form-control" style="width:60%;" placeholder="Search">
+			    <input type="text" class="form-control" style="width:60%;" name="keyword" placeholder="Search">
 			    
 			    <div class="input-group-append">
 			      <button class="btn btn-primary" type="submit">
