@@ -14,8 +14,10 @@ def _cart_id(request):
 # Create your views here.
 def add_cart(request, product_id):
 
-    color = request.GET.get('color')
-    size = request.GET.get('size')
+    if request.method == 'POST':
+        color = request.POST.get('color')
+        size = request.POST.get('size')
+        
     
 
     product = Product.objects.get(id=product_id)
