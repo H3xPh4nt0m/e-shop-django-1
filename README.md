@@ -5,4 +5,6 @@
 ```
 pip install django
 pip install pillow
+pip install psycopg
+pip install psycopg2
 ```
