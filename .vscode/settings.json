@@ -1,8 +1,9 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",
-    "python.defaultInterpreterPath": "${workspaceFolder}\\myenv_p314\\python.exe",
+    //"python.defaultInterpreterPath": "${workspaceFolder}\\..\\myenv_p314\\python.exe",
     "python.analysis.extraPaths": [
         "${workspaceFolder}"
-    ]
+    ],
+    "docwriter.style": "JSDoc"
 }

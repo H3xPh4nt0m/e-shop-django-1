@@ -45,4 +45,4 @@ class Variation(models.Model):
         ordering = ('-created_at',)
 
     def __str__(self):
-        return f"{self.variation_category}: {self.variation_value}"
+        return f"{self.product.name} - {self.variation_category}: {self.variation_value}"
